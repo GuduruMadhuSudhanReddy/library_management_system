@@ -19,11 +19,11 @@
     ],
     "routes": [
         {
-            "src": "^/static/(.*)$",
+            "src": "/static/(.*)",
             "dest": "/static/$1"
         },
         {
-            "src": "^(?!/static/).*",
+            "src": "/(.*)",
             "dest": "library_management_system/wsgi.py"
         }
     ]
