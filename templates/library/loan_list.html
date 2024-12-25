@@ -1,0 +1,31 @@
+{% extends 'library/base.html' %}
+{% block title %}Loan List{% endblock %}
+
+{% block content %}
+<h2>Loan List</h2>
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>Book Title</th>
+            <th>Loaned To</th>
+            <th>Loan Date</th>
+            <th>Return Date</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for loan in loans %}
+        <tr>
+            <td>{{ loan.book.title }}</td>
+            <td>{{ loan.loaned_to }}</td>
+            <td>{{ loan.loaned_date }}</td>
+            <td>{{ loan.return_date }}</td>
+        </tr>
+        {% empty %}
+        <tr>
+            <td colspan="4" class="text-center">No loans available.</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+<a href="{% url 'loan_book' %}" class="btn btn-primary">Loan a Book</a>
+{% endblock %}

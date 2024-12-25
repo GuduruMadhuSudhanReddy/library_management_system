@@ -1,0 +1,24 @@
+{% extends 'library/base.html' %}
+
+{% block title %}Login - Library Management{% endblock %}
+
+{% block content %}
+<h2>Login</h2>
+<form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Login</button>
+</form>
+<p>Don't have an account? <a href="{% url 'signup_view' %}">Sign up here</a></p>
+{% if form.errors %}
+    <ul>
+        {% for field, errors in form.errors.items %}
+            {% for error in errors %}
+                <li>{{ field|capfirst }}: {{ error }}</li>
+            {% endfor %}
+        {% endfor %}
+    </ul>
+{% endif %}
+
+   
+{% endblock %}

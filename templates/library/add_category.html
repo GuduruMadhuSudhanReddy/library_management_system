@@ -1,0 +1,12 @@
+{% extends 'library/base.html' %}
+{% block title %}Add Category{% endblock %}
+
+{% block content %}
+<h2>Add Category</h2>
+<form method="POST">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit" class="btn btn-success">Add Category</button>
+</form>
+<a href="{% url 'category_list' %}" class="btn btn-link">Back to Category List</a>
+{% endblock %}

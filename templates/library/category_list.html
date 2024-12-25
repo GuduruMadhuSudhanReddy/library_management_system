@@ -1,0 +1,23 @@
+{% extends 'library/base.html' %}
+{% block title %}Category List{% endblock %}
+
+{% block content %}
+<h2>Category List</h2>
+<a href="{% url 'add_category' %}" class="btn btn-primary mb-3">Add Category</a>
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Description</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for category in categories %}
+        <tr>
+            <td>{{ category.name }}</td>
+            <td>{{ category.description }}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}

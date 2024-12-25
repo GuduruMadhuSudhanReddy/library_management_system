@@ -1,0 +1,11 @@
+
+{% extends 'library/base.html' %}
+
+
+{% block title %}Dashboardashoboard{% endblock %}
+
+{% block content %}
+<h2>Dashboard</h2>
+<p>Total Registered Users: {{ total_users }}</p>
+<a href="{% url 'logout_view' %}">Logout</a>
+{% endblock %}

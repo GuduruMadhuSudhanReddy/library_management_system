@@ -1,0 +1,25 @@
+{% extends 'library/base.html' %}
+{% block title %}Return List{% endblock %}
+
+{% block content %}
+<h2>Return List</h2>
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>Book Title</th>
+            <th>Returned By</th>
+            <th>Return Date</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for return in returns %}
+        <tr>
+            <td>{{ return.book.title }}</td>
+            <td>{{ return.returned_by }}</td>
+            <td>{{ return.return_date }}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+<a href="{% url 'return_book' %}" class="btn btn-primary">Return a Book</a>
+{% endblock %}

@@ -1,0 +1,23 @@
+{% extends 'library/base.html' %}
+{% block title %}Author List{% endblock %}
+
+{% block content %}
+<h2>Author List</h2>
+<a href="{% url 'add_author' %}" class="btn btn-primary mb-3">Add Author</a>
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Biography</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for author in authors %}
+        <tr>
+            <td>{{ author.name }}</td>
+            <td>{{ author.biography }}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}

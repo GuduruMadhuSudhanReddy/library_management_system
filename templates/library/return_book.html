@@ -1,0 +1,39 @@
+{% extends 'library/base.html' %}
+
+{% block title %}Return Book{% endblock %}
+
+{% block content %}
+<h2>Return Book</h2>
+
+{% if loans %}
+    <form method="POST">
+        {% csrf_token %}
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th>Book Title</th>
+                    <th>Loaned To</th>
+                    <th>Loan Date</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for loan in loans %}
+                    <tr>
+                        <td>{{ loan.book.title }}</td>
+                        <td>{{ loan.loaned_to }}</td>
+                        <td>{{ loan.loaned_date }}</td>
+                        <td>
+                            <button type="submit" name="loan_id" value="{{ loan.id }}" class="btn btn-success">
+                                Return Book
+                            </button>
+                        </td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </form>
+{% else %}
+    <p>No books to return.</p>
+{% endif %}
+{% endblock %}
